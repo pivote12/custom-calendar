@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditEventComponent } from './edit-event.component';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatDialogModule,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 describe('EditEventComponent', () => {
   let component: EditEventComponent;
@@ -8,9 +14,13 @@ describe('EditEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditEventComponent ]
-    })
-    .compileComponents();
+      declarations: [EditEventComponent],
+      imports: [HttpClientModule, MatDialogModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
