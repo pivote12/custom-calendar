@@ -31,7 +31,7 @@ describe('CalendarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fdescribe('new Event',()=>{
+  describe('new Event',()=>{
 
 
     it('should call and create the new event',()=>{
