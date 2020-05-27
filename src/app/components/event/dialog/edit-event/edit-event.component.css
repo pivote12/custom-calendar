@@ -1,0 +1,10 @@
+.mat-form-field{
+    width: 100%;
+}
+
+.delete{
+    background-color: red;
+    position: relative;
+    float: right;
+    color: white;
+}

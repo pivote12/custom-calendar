@@ -1,0 +1,121 @@
+.calendar {
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  border: solid 1px #cccccc;
+  margin-bottom: 10px;
+}
+
+.calendar > div.header {
+  float: left;
+  width: 100%;
+  background: #2875c7;
+  height: 40px;
+  color: white;
+}
+
+.calendar > div.header > * {
+  height: 40px;
+  line-height: 40px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.calendar > div.header > i {
+  float: left;
+  width: 40px;
+  font-size: 1.125em;
+  font-weight: bold;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.calendar > div.header > i.fa-angle-left {
+  text-align: left;
+}
+
+.calendar > div.header > i.fa-angle-right {
+  text-align: right;
+  margin-left: -40px;
+}
+
+.calendar > div.header > span {
+  float: left;
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 50px;
+  margin-left: -40px;
+  text-align: center;
+  padding-right: 40px;
+  color: inherit;
+}
+
+.calendar > div.week {
+  float: left;
+  width: 100%;
+  border-top: solid 1px #cccccc;
+}
+
+.calendar > div.week:first-child {
+  border-top: none;
+}
+
+.calendar > div.week > span.day {
+  width: 14.28571429%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-left: solid 1px #cccccc;
+  font-size: 0.75em;
+  text-align: center;
+  height: 70px;
+  line-height: 30px !important;
+  display: inline-block;
+  vertical-align: middle;
+  background: white;
+  color: black;
+}
+.calendar > div.week > span.number {
+  text-align: left;
+}
+.calendar > div.week > span.day:first-child {
+  border-left: none;
+}
+
+.calendar > div.week > span.day.today {
+  background: #e3f2ff;
+}
+
+.calendar > div.week > span.day.different-month {
+  color: #c0c0c0;
+}
+
+.calendar > div.week > span.day.selected {
+  background: #2875c7;
+  color: white;
+}
+
+.calendar > div.week.names > span {
+  color: #2875c7;
+  font-weight: bold;
+}
+
+.mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]){
+  width: 10px;
+  height: 10px;
+}
+
+.event{
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 3px;
+}

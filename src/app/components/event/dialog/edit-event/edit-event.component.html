@@ -1,0 +1,99 @@
+<form [formGroup]="edit">
+    <mat-form-field>
+      <mat-label>Reminder</mat-label>
+      <textarea
+        matInput
+        formControlName="display"
+        placeholder="Display reminder"
+        [errorStateMatcher]="matcher"
+      ></textarea>
+      <mat-error *ngIf="edit.controls.display.hasError('required')">
+        Reminder is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input
+        matInput
+        [errorStateMatcher]="matcher"
+        formControlName="city"
+        placeholder="City"
+      />
+      <mat-error *ngIf="edit.controls.city.hasError('required')">
+        City is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        [errorStateMatcher]="matcher"
+        formControlName="date"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="edit.controls.date.hasError('required')">
+        Date is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Hour</mat-label>
+      <input
+        type="number"
+        matInput
+        [errorStateMatcher]="matcher"
+        formControlName="hour"
+        placeholder="Hour"
+      />
+      <mat-error *ngIf="edit.controls.hour.hasError('required')">
+        Hour is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="edit.controls.hour.hasError('min')">
+        Hour must be grater than <strong>0</strong>
+      </mat-error>
+      <mat-error *ngIf="edit.controls.hour.hasError('max')">
+        Hour must be less than <strong>24</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Minutes</mat-label>
+      <input
+        type="number"
+        matInput
+        [errorStateMatcher]="matcher"
+        formControlName="min"
+        placeholder="Minutes"
+      />
+      <mat-error *ngIf="edit.controls.min.hasError('required')">
+        Minutes is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="edit.controls.min.hasError('min')">
+        Minutes must be grater than <strong>0</strong>
+      </mat-error>
+      <mat-error *ngIf="edit.controls.min.hasError('max')">
+        Minutes must be less than <strong>60</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <mat-select
+        [errorStateMatcher]="matcher"
+        formControlName="color"
+        placeholder="Color"
+      >
+        <mat-option *ngFor="let color of colors" [value]="color">
+          <span [style.color]="color">{{ color }}</span>
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="edit.controls.color.hasError('required')">
+        Color is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary" [disabled]="!edit.valid" (click)="submit()">New Event</button>
+    <button mat-flat-button color="accent" (click)="onNoClick()">Cancel</button>
+    <button mat-icon-button class="delete" (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+  </form>
+  

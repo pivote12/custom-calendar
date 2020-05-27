@@ -1,0 +1,44 @@
+<div class="calendar">
+  <div class="header">
+    <i class="fa fa-angle-left" (click)="prev()">
+      <img class="img-responsive" src="assets/arrow_left.png" />
+    </i>
+
+    <span>{{ month.format("MMMM, YYYY") }}</span>
+
+    <i class="fa fa-angle-right" (click)="forward()">
+      <img class="img-responsive" src="assets/arrow_right.png" />
+    </i>
+  </div>
+  <div class="week names">
+    <span class="day">Sunday</span>
+    <span class="day">Monday</span>
+    <span class="day">Tuesday</span>
+    <span class="day">Wednesday</span>
+    <span class="day">Thursday</span>
+    <span class="day">Friday</span>
+    <span class="day">Saturday</span>
+  </div>
+  <div class="week" *ngFor="let week of weeks">
+    <span
+      class="day number"
+      [ngClass]="{
+        today: day.isToday,
+        'different-month': !day.isCurrentMonth,
+        selected: day.date.isSame(selected)
+      }"
+      *ngFor="let day of week.days"
+      [ngStyle]="{'background-image': day.weather != null ?  'url(assets/rain.png)' : 'none'}"
+      >{{ day.number }}
+      <div *ngFor="let event of day.event" class="event">
+        <button
+          mat-mini-fab
+          color="primary"
+          aria-label="Example icon button with a menu icon"
+          [style.background-color]="event.color"
+          (click)="edit(event)"
+        ></button>
+      </div>
+    </span>
+  </div>
+</div>
